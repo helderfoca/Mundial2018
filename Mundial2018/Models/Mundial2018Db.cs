@@ -19,6 +19,8 @@ namespace Mundial2018.Models
 
         // tabelas da base de dados
 
+        public virtual DbSet<Groups> Groups { get; set; }
+
         public virtual DbSet<Nations> Nations { get; set; }
 
         public virtual DbSet<Players> Players { get; set; }

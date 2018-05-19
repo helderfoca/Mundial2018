@@ -116,9 +116,14 @@
     <Content Include="html\index.html" />
     <Content Include="javascript\access.js" />
     <Content Include="javascript\app.js" />
+    <Content Include="Media\Nations\Egypt.png" />
+    <Content Include="Media\Nations\Russia.png" />
+    <Content Include="Media\Nations\SaudiArabia.png" />
+    <Content Include="Media\Nations\Uruguay.png" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\PlayersController.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Api\NationsController.cs" />
@@ -126,6 +131,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Groups.cs" />
     <Compile Include="Models\Mundial2018Db.cs" />
     <Compile Include="Models\Nations.cs" />
     <Compile Include="Models\Players.cs" />

@@ -12,6 +12,7 @@ using Mundial2018.Models;
 
 namespace Mundial2018.Controllers
 {
+    [RoutePrefix("api/Nations")]
     public class NationsController : ApiController
     {
         private Mundial2018Db db = new Mundial2018Db();
@@ -22,8 +23,10 @@ namespace Mundial2018.Controllers
             var resultado = db.Nations
                .Select(nation => new {
                    nation.ID,
-                   nation.Name
-                })
+                   nation.Name,
+                   nation.Flag,
+                   nation.GroupFK
+               })
                 .ToList();
 
 
@@ -41,6 +44,27 @@ namespace Mundial2018.Controllers
             }
 
             return Ok(nations);
+        }
+
+        // GET: api/Nations/5/Players
+        [HttpGet, Route("{id}/Players")]
+        public IHttpActionResult GetNationPlayers(int id)
+        {
+            Nations nation = db.Nations.Find(id);
+
+            var resultado = nation.Players
+                .Select(players => new {
+                    players.ID,
+                    players.Name,
+                    players.BirthDate,
+                    players.Position,
+                    players.Image,
+                    players.Introduction
+                })
+                .ToList();
+
+
+            return Ok(resultado);
         }
 
         // PUT: api/Nations/5
