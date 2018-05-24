@@ -20,7 +20,9 @@ namespace Mundial2018.Models
         
         public string Position { get; set; }
 
+        public string Image { get; set; }
 
+        public string Introduction { get; set; }
 
         [ForeignKey("Nation")]
         public int NationFK { get; set; }

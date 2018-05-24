@@ -22,8 +22,11 @@ namespace Mundial2018.Controllers
             var resultado = db.Nations
                .Select(nation => new {
                    nation.ID,
-                   nation.Name
-                })
+                   nation.Name,
+                   nation.Flag,
+                   nation.GroupFK
+               })
+                .OrderBy(nation => new { nation.Name})
                 .ToList();
 
 
@@ -41,6 +44,57 @@ namespace Mundial2018.Controllers
             }
 
             return Ok(nations);
+        }
+
+        // GET: api/Nations/5/Players
+        [HttpGet, Route("api/Nations/{id}/Players")]
+        public IHttpActionResult GetNationPlayers(int id)
+        {
+            Nations nation = db.Nations.Find(id);
+
+            var resultado = nation.Players
+                .Select(players => new {
+                    players.ID,
+                    players.Name,
+                    players.BirthDate,
+                    players.Position,
+                    players.Image,
+                    players.Introduction
+                })
+                .ToList();
+
+
+            return Ok(resultado);
+        }
+
+        // GET: api/Nations/5/Players/5/Details
+        [HttpGet, Route("api/Players/{idPlayer}/Details")]
+        public IHttpActionResult GetPlayerDetails(int idPlayer)
+        {
+            /*Nations nation = db.Nations.Find(idNation);
+
+            var resultado = nation.Players
+                .Select(players => new {
+                    players.ID,
+                    players.Name,
+                    players.BirthDate,
+                    players.Position,
+                    players.Image,
+                    players.Introduction
+                })
+                .Where(players => new { players.ID } = idPlayer)
+                .ToList();*/
+            Players player = db.Players.Find(idPlayer);
+
+            var resultado = new
+            {
+                player.Name,
+                player.BirthDate,
+                player.Position,
+                player.Image,
+                player.Introduction
+            };
+            return Ok(resultado);
         }
 
         // PUT: api/Nations/5
