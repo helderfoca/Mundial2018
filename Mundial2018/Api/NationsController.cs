@@ -12,7 +12,6 @@ using Mundial2018.Models;
 
 namespace Mundial2018.Controllers
 {
-    [RoutePrefix("api/Nations")]
     public class NationsController : ApiController
     {
         private Mundial2018Db db = new Mundial2018Db();
@@ -27,6 +26,7 @@ namespace Mundial2018.Controllers
                    nation.Flag,
                    nation.GroupFK
                })
+                .OrderBy(nation => new { nation.Name})
                 .ToList();
 
 
@@ -47,7 +47,7 @@ namespace Mundial2018.Controllers
         }
 
         // GET: api/Nations/5/Players
-        [HttpGet, Route("{id}/Players")]
+        [HttpGet, Route("api/Nations/{id}/Players")]
         public IHttpActionResult GetNationPlayers(int id)
         {
             Nations nation = db.Nations.Find(id);
@@ -64,6 +64,36 @@ namespace Mundial2018.Controllers
                 .ToList();
 
 
+            return Ok(resultado);
+        }
+
+        // GET: api/Nations/5/Players/5/Details
+        [HttpGet, Route("api/Players/{idPlayer}/Details")]
+        public IHttpActionResult GetPlayerDetails(int idPlayer)
+        {
+            /*Nations nation = db.Nations.Find(idNation);
+
+            var resultado = nation.Players
+                .Select(players => new {
+                    players.ID,
+                    players.Name,
+                    players.BirthDate,
+                    players.Position,
+                    players.Image,
+                    players.Introduction
+                })
+                .Where(players => new { players.ID } = idPlayer)
+                .ToList();*/
+            Players player = db.Players.Find(idPlayer);
+
+            var resultado = new
+            {
+                player.Name,
+                player.BirthDate,
+                player.Position,
+                player.Image,
+                player.Introduction
+            };
             return Ok(resultado);
         }
 

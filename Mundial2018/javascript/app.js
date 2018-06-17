@@ -4,8 +4,8 @@
 document.addEventListener('DOMContentLoaded', function main() {
 
     backButton();
-    Nations();
-    //Players(7);
+    //Nations();
+    PlayerDetails(1);
 
 }); // main()    
 
@@ -161,6 +161,77 @@ function showPlayers(players) {
         containerNamePlayer.textContent = namePlayer;
     }
 } // showPlayers(players)
+
+/************************  PLAYER DETAILS  *************************/
+
+
+// função que liga o acesso aos dados dos detalhes de um player de uma nation com a aplicação
+function PlayerDetails(player) {
+    return getPlayerDetails(player)
+        .then(function (playerDetails) {
+            showPlayerDetails(playerDetails);
+        })
+        .catch(function (erro) {
+            console.error(erro);
+        });
+} // PlayerDetails(player)
+
+
+// função que cria os elementos html para os players de uma nation
+function showPlayerDetails(playerDetails) {
+
+    // contentor para os detalhes de um player
+    var details = document.querySelector('#playersDetails');
+
+    // nome do player
+    var playerName = playerDetails.Name;
+
+    // imagem do player
+    var playerImg = playerDetails.Image;
+
+    // data de nascimento do player
+    var playerBirthday = playerDetails.BirthDate;
+
+    // posição do player
+    var playerPosition = playerDetails.Position;
+
+    // introdução da wikipedia do player
+    var playerIntro = playerDetails.Introduction;
+
+    // contentor para o nome do player
+    var containerPlayerName = document.createElement('p');
+    details.appendChild(containerPlayerName);
+
+    containerPlayerName.textContent= playerName;
+
+    // contentor para a data de nascimento do player
+    var containerPlayerBirthday = document.createElement('p');
+    details.appendChild(containerPlayerBirthday);
+
+    containerPlayerBirthday.textContent = playerBirthday
+
+    // contentor para a posição do player
+    var containerPlayerPosition = document.createElement('p');
+    details.appendChild(containerPlayerPosition);
+
+    containerPlayerPosition.textContent = playerPosition;
+
+    // contentor para a introdução do player
+    var containerPlayerIntro = document.createElement('p');
+    details.appendChild(containerPlayerIntro);
+
+    containerPlayerIntro.textContent = playerIntro;
+    
+    // contentor para a imagem do player
+    var containerPlayerImg = document.createElement('img');
+    details.appendChild(containerPlayerImg);
+    
+    var urlplayerImg = "/Media/Players/" + playerImg;
+
+    containerPlayerImg.setAttribute('src', urlplayerImg);
+
+} // showPlayerDetails(playerDetails)
+
 
 /************************  NATION -> PLAYER  *************************/
 
