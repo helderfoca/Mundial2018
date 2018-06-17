@@ -4,8 +4,8 @@
 document.addEventListener('DOMContentLoaded', function main() {
 
     backButton();
-    //Nations();
-    PlayerDetails(1);
+    Nations();
+    //PlayerDetails(1);
 
 }); // main()    
 
@@ -66,8 +66,6 @@ function showNations(nations) {
         containerFlagNation.classList.add("card-img-top");
         containerFlagNation.setAttribute('src', flagNation);
         containerFlagNation.setAttribute('alt', "Card header image");
-        //containerFlagNation.setAttribute('height', '200px');
-        //containerFlagNation.setAttribute('style', 'object-fit:cover');
 
         // div para o corpo da card
         var bodyCard = document.createElement('div');
@@ -83,9 +81,9 @@ function showNations(nations) {
         containerNameNation.textContent = nameNation;
 
         // evento para ir para os players da nation ao clicar numa nation
-        divCard.addEventListener('click', function goToPlayer() {
-            nationToPlayer(id);
-        });
+        //divCard.addEventListener('click', function goToPlayer() {
+        //    nationToPlayer(id);
+        //});
 
     } // showNations(nations)
 }
@@ -113,7 +111,7 @@ function showPlayers(players) {
         var player = players[i];
 
         // id do player
-        var id = player.id;
+        let id = player.ID;
 
         // nome do player
         var namePlayer = player.Name;
@@ -159,6 +157,12 @@ function showPlayers(players) {
 
         containerNamePlayer.classList.add("card-title");
         containerNamePlayer.textContent = namePlayer;
+
+        //evento para ir para os players da nation ao clicar numa nation
+        divCard.addEventListener('click', function goToDetails() {
+            playerToDetails(id);
+        });
+
     }
 } // showPlayers(players)
 
@@ -237,14 +241,14 @@ function showPlayerDetails(playerDetails) {
 
 
 // esconde o ecrã das nations e mostra o ecrã dos players de uma nation
-function nationToPlayer(nation) {
+function nationToPlayer() {
 
     // esconde o ecrã das nations
     var nations = document.querySelector('#nations');
     nations.setAttribute('style', 'display:none');
 
     // cria o ecrã dos players da nation
-    Players(nation);
+    Players(7);
 
     // mostra o butão
     var btn = document.querySelector('#btn');
@@ -253,6 +257,29 @@ function nationToPlayer(nation) {
     // localiza o ecrã atual
     btn.removeAttribute('data-btnLocal');
     btn.setAttribute('data-btnLocal', 'players');
+
+} // nationToPlayer(nation)
+
+/************************  PLAYER -> DETAILS  *************************/
+
+
+// esconde o ecrã das nations e mostra o ecrã dos players de uma nation
+function playerToDetails(player) {
+
+    // esconde o ecrã dos players
+    var players = document.querySelector('#players');
+    players.setAttribute('style', 'display:none');
+
+    // cria o ecrã dos players da nation
+    PlayerDetails(player)
+
+    // mostra o butão
+    var btn = document.querySelector('#btn');
+    btn.setAttribute('style', 'display:block');
+
+    // localiza o ecrã atual
+    btn.removeAttribute('data-btnLocal');
+    btn.setAttribute('data-btnLocal', 'details');
 
 } // nationToPlayer(nation)
 
@@ -304,3 +331,42 @@ function removePlayers() {
     btn.setAttribute('style', 'display:none');
 
 } // removePlayers()
+
+// remove os players e mostra as nations
+function removeDetalhes() {
+
+    // localiza o ecrã atual
+    var btn = document.querySelector('#btn');
+    btn.removeAttribute('data-btnLocal');
+    btn.setAttribute('data-btnLocal', 'details');
+
+    // mostra o ecrã dos players
+    var players = document.querySelector('#players');
+    players.setAttribute('style', 'display:block');
+
+    // remove os detalhes
+    var det = document.querySelector('#playersDetails');
+    while (det.hasChildNodes()) {
+        det.removeChild(det.firstChild);
+    }
+
+    // esconde o butão
+    btn.setAttribute('style', 'display:none');
+
+} // removePlayers()
+
+// clica em Racing Legends para ir para o ecrã das categorias
+function goNations() {
+
+    var btn = document.querySelector('#btn');
+
+    // se estiver no ecrã dos detalhes apaga os detalhes e os pilotos e mostra as categorias
+    if (btn.getAttribute('data-btnLocal') == 'details') {
+        removeDetalhes();
+    }
+    // se estiver no ecrã dos pilotos apaga os pilotos e mostra as categorias
+    if (btn.getAttribute('data-btnLocal') == 'players') {
+        removePlayers();
+    }
+
+} // goNations() 
