@@ -112,6 +112,7 @@
     <Content Include="App_Data\Mundial2018Db_log.ldf">
       <DependentUpon>Mundial2018Db.mdf</DependentUpon>
     </Content>
+    <Content Include="css\style.css" />
     <Content Include="Global.asax" />
     <Content Include="html\index.html" />
     <Content Include="javascript\access.js" />
@@ -120,6 +121,29 @@
     <Content Include="Media\Nations\Russia.png" />
     <Content Include="Media\Nations\SaudiArabia.png" />
     <Content Include="Media\Nations\Uruguay.png" />
+    <Content Include="Media\Players\AdrienSilva.jpg" />
+    <Content Include="Media\Players\AndreSilva.jpg" />
+    <Content Include="Media\Players\AnthonyLopes.jpg" />
+    <Content Include="Media\Players\BernardoSilva.jpg" />
+    <Content Include="Media\Players\Beto.jpg" />
+    <Content Include="Media\Players\BrunoAlves.jpg" />
+    <Content Include="Media\Players\BrunoFernandes.jpg" />
+    <Content Include="Media\Players\Cedric.jpg" />
+    <Content Include="Media\Players\CristianoRonaldo.jpg" />
+    <Content Include="Media\Players\GelsonMartins.jpg" />
+    <Content Include="Media\Players\GoncaloGuedes.jpg" />
+    <Content Include="Media\Players\JoaoMario.jpg" />
+    <Content Include="Media\Players\JoaoMoutinho.jpg" />
+    <Content Include="Media\Players\JoseFonte.jpg" />
+    <Content Include="Media\Players\ManuelFernandes.jpg" />
+    <Content Include="Media\Players\MarioRui.jpg" />
+    <Content Include="Media\Players\Pepe.jpg" />
+    <Content Include="Media\Players\RaphaelGuerreiro.jpg" />
+    <Content Include="Media\Players\RicardoPereira.jpg" />
+    <Content Include="Media\Players\RicardoQuaresma.jpg" />
+    <Content Include="Media\Players\RubenDias.jpg" />
+    <Content Include="Media\Players\RuiPatricio.jpg" />
+    <Content Include="Media\Players\WilliamCarvalho.jpg" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

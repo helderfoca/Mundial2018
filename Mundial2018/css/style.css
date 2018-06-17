@@ -1,0 +1,18 @@
+﻿body {
+    padding-top: 58px;
+}
+
+#rowNations > div > div > img {
+    height: 200px;
+    border: solid 2px #000000;
+}
+
+#rowNations > div > div > div {
+    border-bottom: solid 2px #000000;
+    border-right: solid 2px #000000;
+    border-left: solid 2px #000000;
+}
+
+#rowNations > div > div {
+    width: 500px;
+}

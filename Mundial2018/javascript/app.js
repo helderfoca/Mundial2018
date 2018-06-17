@@ -46,7 +46,7 @@ function showNations(nations) {
         rowNations.appendChild(divNation);
 
         divNation.classList.add("col-sm-6");
-        divNation.classList.add("col-lg-3");
+        divNation.classList.add("col-lg-4");
         divNation.classList.add("d-flex");
         divNation.classList.add("align-items-stretch");
 
@@ -66,8 +66,8 @@ function showNations(nations) {
         containerFlagNation.classList.add("card-img-top");
         containerFlagNation.setAttribute('src', flagNation);
         containerFlagNation.setAttribute('alt', "Card header image");
-        containerFlagNation.setAttribute('height', '200px');
-        containerFlagNation.setAttribute('style', 'object-fit:cover');
+        //containerFlagNation.setAttribute('height', '200px');
+        //containerFlagNation.setAttribute('style', 'object-fit:cover');
 
         // div para o corpo da card
         var bodyCard = document.createElement('div');
