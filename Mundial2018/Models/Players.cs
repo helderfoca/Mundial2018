@@ -15,8 +15,6 @@ namespace Mundial2018.Models
         public int ID { get; set; }
 
         public string Name { get; set; }
-
-        public DateTime BirthDate { get; set; }
         
         public string Position { get; set; }
 

@@ -1,14 +1,95 @@
 ﻿body {
-    padding-top: 58px;
+    padding-top: 70px;
 }
 
-#rowNations > div > div > img {
+.imgNation {
     height: 200px;
-    border: solid 2px #000000;
+    border: solid 1px #000000;
 }
 
-#rowNations > div > div > div {
-    border-bottom: solid 2px #000000;
-    border-right: solid 2px #000000;
-    border-left: solid 2px #000000;
+.imgPlayer {
+    height: 380px;
+    border: solid 1px #000000;
+    object-fit: cover;
+}
+
+.card-body {
+    border-bottom: solid 1px #000000;
+    border-right: solid 1px #000000;
+    border-left: solid 1px #000000;
+    padding: 12px;
+    margin: 0px;
+}
+
+.card-title {
+    padding: 0px;
+    margin: 0px;
+}
+
+.modal-dialog {
+    position: relative;
+    display: table;
+}
+
+#popUpImg {
+    height: 300px;
+    width: 400px;
+}
+
+#popUpVideo {
+    height: 200px;
+    width: 300px;
+}
+
+#popUpTop {
+    width: 770px;
+}
+
+#popUpLeft {
+    width: 450px;
+}
+
+#popUpWins, #popUpPart {
+    padding-left: 10px;
+}
+
+#popUpRight {
+    width: 350px;
+    flex-direction: column;
+}
+
+#playerDetails {
+    display: none;
+    margin-top: 100px;
+    border: solid 1px #000000;
+}
+
+#detailsRight {
+    flex-direction: column;
+    height: 470px;
+    border-left: solid 1px #000000;
+    padding: 0px;
+    margin: 0px;
+}
+
+#detailsLeft {
+    padding: 0px;
+    margin: 0px;
+}
+
+#detailsLeft > img {
+    height: 470px;
+    width: 284.5px;
+    margin: 0px;
+    object-fit: cover;
+}
+
+.title {
+    border-bottom: solid 1px #000000;
+    padding: 10px 0px 10px 20px;
+}
+
+.txt {
+    padding: 20px;
+    overflow-y: auto;
 }

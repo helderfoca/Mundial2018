@@ -108,10 +108,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Mundial2018Db.mdf" />
-    <Content Include="App_Data\Mundial2018Db_log.ldf">
-      <DependentUpon>Mundial2018Db.mdf</DependentUpon>
-    </Content>
     <Content Include="css\style.css" />
     <Content Include="Global.asax" />
     <Content Include="html\index.html" />
@@ -147,7 +143,6 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Api\PlayersController.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Api\NationsController.cs" />
@@ -155,7 +150,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Groups.cs" />
     <Compile Include="Models\Mundial2018Db.cs" />
     <Compile Include="Models\Nations.cs" />
     <Compile Include="Models\Players.cs" />
@@ -172,6 +166,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
   </ItemGroup>
   <PropertyGroup>

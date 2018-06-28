@@ -23,9 +23,15 @@ namespace Mundial2018.Models
 
         public string Flag { get; set; }
 
-        [ForeignKey("Group")]
-        public int GroupFK { get; set; }
-        public virtual Groups Group { get; set; }
+        public int Wins { get; set; }
+
+        public int Participations { get; set; }
+
+        public string Caption { get; set; }
+
+        public string Anthem { get; set; }
+        
+        public string Group { get; set; }
 
         public virtual ICollection<Players> Players { get; set; }
 

@@ -15,33 +15,11 @@ namespace Mundial2018.Models
 
         }
 
-
-
         // tabelas da base de dados
-
-        public virtual DbSet<Groups> Groups { get; set; }
 
         public virtual DbSet<Nations> Nations { get; set; }
 
         public virtual DbSet<Players> Players { get; set; }
-
-
-
-
-
-        /// <summary>
-        /// configura a forma como as tabelas são criadas
-        /// </summary>
-        /// <param name="modelBuilder">objeto que referencia o gerador de base de dados</param>
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-
-            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
-            modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
-
-            base.OnModelCreating(modelBuilder);
-        }
-
 
     }
 }

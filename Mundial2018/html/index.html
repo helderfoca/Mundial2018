@@ -14,36 +14,61 @@
     <meta charset="utf-8" />
     <title></title>
 </head>
+
+
 <body>
-    <div class="modal fade" id="imgPopUp" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <!-- Parte do PopUp -->
+    <div class="modal fade" id="pop" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-body">
-                    <img id="popUpImg" />
-                    <iframe id="popUpVideo" frameborder="0" allowfullscreen></iframe>
-                </div>
-                <div class="modal-footer">
-                    <p id="popUpCaption" class="mr-auto"></p>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <div id="popUpTop" class="container">
+                        <div id="popUpRow" class="row">
+                            <div id="popUpLeft" class="col">
+                                <img id="popUpImg" />
+                            </div>
+                            <div id="popUpRight" class="col d-flex">
+                                <p id="popUpWins" class="mr-auto"></p>
+                                <p id="popUpPart" class="mr-auto"></p>
+                                <iframe id="popUpVideo" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <p id="popUpCaption" class="mr-auto"></p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Barra de Navegação -->
     <nav id="topbar" class="navbar navbar-expand-sm navbar-light fixed-top bg-light">
-        <a href="#" class="navbar-brand">Mundial 2018</a>
-        <!--<a href="#" class="navbar-brand" onclick="goNations()">Nations</a>
-        <a href="#" class="navbar-brand" onclick="nationToPlayer()">Portugal</a>
-        <button id="btn" type="button" class="btn btn-light">Back</button>-->
+        <a class="navbar-brand">Mundial 2018</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a href="#" class="nav-link" onclick="goNations()">Nations</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Nations
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" onclick="goNations()">All</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" onclick="group('A')">Group A</a>
+                        <a class="dropdown-item" onclick="group('B')">Group B</a>
+                        <a class="dropdown-item" onclick="group('C')">Group C</a>
+                        <a class="dropdown-item" onclick="group('D')">Group D</a>
+                        <a class="dropdown-item" onclick="group('E')">Group E</a>
+                        <a class="dropdown-item" onclick="group('F')">Group F</a>
+                        <a class="dropdown-item" onclick="group('G')">Group G</a>
+                        <a class="dropdown-item" onclick="group('H')">Group H</a>
+                    </div>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link" onclick="nationToPlayer()">Portugal</a>
+                    <a href="#" class="nav-link" onclick="goPlayers(7)">Portugal</a>
                 </li>
                 <li class="nav-item">
                     <button id="btn" type="button" class="btn btn-light">Back</button>
@@ -51,13 +76,22 @@
             </ul>
         </div>
     </nav>
+    <!-- Ecrâ das Equipas -->
     <div id="nations" class="container">
         <div id="rowNations" class="row"></div>
     </div>
+    <!-- Ecrâ dos Jogadores -->
     <div id="players" class="container">
         <div id="rowPlayers" class="row"></div>
     </div>
-    <div id="playersDetails" style="margin-top:100px" class="container">
+    <!-- Ecrâ dos detalhes de um Jogador -->
+    <div id="playerDetails" style="margin-top:100px" class="container">
+        <div id="rowDetails" class="row">
+            <div id="detailsLeft" class="col-3 d-flex">
+            </div>
+            <div id="detailsRight" class="col-9 d-flex">
+            </div>
+        </div>
     </div>
 </body>
 </html>
